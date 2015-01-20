@@ -1,0 +1,66 @@
+<link rel="import" href="../polymer/polymer.html"> 
+<link rel="import" href="../th-theme/th-theme.html"> 
+<link rel="import" href="../th-mapbox/th-mapbox.html"> 
+
+<!--
+A Thelma component providing solution to no problem in particular.
+
+##### Example
+
+    <dtny-app></dtny-app>
+
+@element dtny-app
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@homepage http://nishacodes.github.io/dtny-app
+-->
+
+<polymer-element name="dtny-app" attributes="author fancy">
+  <template>
+    
+    <link rel="stylesheet" href="dtny-app.css">
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700|Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    
+    <div id="section-1" class="section">
+      <div class="header"><div id="logo">dtny</div></div>
+      <div class="right-scroll-area"></div>
+      <th-mapbox id="mapbox" startingLat="40.750955" startingLng="-73.989768" startingZoom="13" mapId="nishabatra.d838eba0" input='[{"customHTML": "<p class=\"small\">Our next event:<\/p> <p class=\"event-title\">Design Thinking Workshop<\/p> <p class=\"event-details\">Wednesday, January 21st at 6:30pm at WeWork Bryant Park<\/p><a href=\"http://www.meetup.com/Design-Think-New-York/events/219126684/\"><div class=\"rsvp-button\">RSVP<\/div></a>", "longitude":"-73.984196", "latitude":"40.75301"}]' markerColor="#ffde47" geolocation="false"></th-mapbox>
+    </div>
+
+    <!-- TO FILL OUT -->
+    <!-- <div id="section-2" class="section"> -->
+    <!-- <div id="section-3" class="section"> -->
+    </div>
+
+
+  </template>
+  <script>
+    Polymer({
+      /**
+       * The `author` attribute sets an initial author
+       *
+       * @attribute author
+       * @type string
+       * @default 'Nisha Batra'
+       */
+      author: 'Nisha Batra',
+
+      /**
+       * `fancy` is a property that does something fancy.
+       *
+       * @property fancy
+       * @type bool
+       * @default false
+       */
+      fancy: false,
+
+      ready: function () {
+        var self = this;
+        
+        // Remove zoom controls from map view
+        self.$.mapbox.$.map.querySelector('.leaflet-top').style.display = "none";
+
+      }
+    });
+  </script>
+</polymer-element>
