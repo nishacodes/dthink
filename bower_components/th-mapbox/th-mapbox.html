@@ -165,20 +165,21 @@ Element providing the ability to create maps with the Mapbox API.
         
         var markers = self.map.featureLayer.setGeoJSON(geojson);
 
-        self.map.featureLayer.eachLayer(function(layer) {
-          // here you call `bindPopup` with a string of HTML you create - the feature
-          // properties declared above are available under `layer.feature.properties`
+        markers.eachLayer(function(layer) {
+          // console.log(layer)
           var content = layer.feature.properties.customHTML;
           layer.bindPopup(content, {
             closeButton: false, 
             minWidth: 100,
             maxWidth: 325
-          }).openPopup();
+          });
 
-        });
-
+          self.map.on('ready', function(){
+            layer.openPopup();
+          })
         
-
+        })
+       
         self.map.fitBounds(markers.getBounds());
       },
       accessTokenChanged: function(){
@@ -200,6 +201,8 @@ Element providing the ability to create maps with the Mapbox API.
             self.geolocate.locate();  
           },2000)
         }
+
+
       },
       reset: function(){
         var self = this;
