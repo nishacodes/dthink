@@ -10,10 +10,10 @@
   font-family: 'Josefin Sans', sans-serif;
   font-size: 10em;
   letter-spacing: 5px;
-  color: #ffde47;
+  color: #FFCA1E;
   margin: 25px 35px;
   font-weight: 700;
-  text-shadow: 0px 0px 25px rgba(255, 255, 255, 1);
+  text-shadow: 0px 0px 30px rgba(255, 255, 255, 1);
 }
 
 .right-scroll-area {
@@ -55,7 +55,7 @@ th-mapbox /deep/ * {
 }
 
 th-mapbox /deep/ .small {
-  color: #fdd932;
+  color: #FFCA1E;
   font-weight: 300;
 }
 
@@ -84,7 +84,7 @@ th-mapbox /deep/ .rsvp-button {
   padding: 7px;
   font-size 1.5em;
   cursor: pointer;
-  display: none;
+  /*display: none;*/
 }
 
 th-mapbox /deep/ .rsvp-button:hover {
