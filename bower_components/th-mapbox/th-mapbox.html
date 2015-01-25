@@ -154,9 +154,16 @@ Element providing the ability to create maps with the Mapbox API.
                 "properties": {
                   "title": place.label,
                   // "description": "1714 14th St NW, Washington DC",
-                  "marker-color": markerColor,
-                  "marker-size": "medium",
-                  "customHTML": place.customHTML
+                  // "marker-color": markerColor,
+                  // "marker-size": "medium",
+                  "customHTML": place.customHTML,
+                  "icon": {
+                      "iconUrl": "bower_components/dtny-app/assets/dtny-cab-small-no-logo.png",
+                      "iconSize": [70, 40], // size of the icon
+                      "iconAnchor": [30, 20], // point of the icon which will correspond to marker's location
+                      "popupAnchor": [3, -18] // point from which the popup should open relative to the iconAnchor
+
+                  },
                   // "marker-symbol": "monument"
                 }
               }
@@ -173,6 +180,8 @@ Element providing the ability to create maps with the Mapbox API.
             minWidth: 100,
             maxWidth: 285
           });
+
+          layer.setIcon(L.icon(layer.feature.properties.icon));
 
           self.map.on('ready', function(){
             layer.openPopup();
